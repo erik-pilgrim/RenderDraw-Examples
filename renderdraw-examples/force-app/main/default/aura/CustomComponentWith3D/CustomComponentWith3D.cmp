@@ -1,0 +1,39 @@
+<aura:component implements="lightning:availableForFlowScreens,flexipage:availableForAllPageTypes">
+    <aura:attribute type="String" name="selectedOverrideURL"
+        default="https://files.renderdraw.us/renderings/public/obj/Rims.obj" />
+    <div class="slds-grid slds-gutters slds-card">
+        <div class="slds-col slds-size_1-of-3">
+            <div class="slds-grid slds-wrap slds-grid_vertical-align-center " style="height:35vh">
+                <div class="slds-col slds-size_3-of-3 slds-m-around_small">
+                    <div class="slds-text-heading_small">Select a remote rendering </div>
+                </div>
+                <div class="slds-col slds-size_3-of-3 slds-m-around_small">
+                    <span>
+                        <lightning:button label="Use Rim.obj"
+                            title="Use https://files.renderdraw.us/renderings/public/obj/Rims.obj"
+                            onclick="{!c.handleRimsClick}" />
+                    </span>
+                </div>
+                <div class="slds-col slds-size_3-of-3 slds-m-around_small">
+                    <span>
+                        <lightning:button label="Use Fan.obj"
+                            title="Use https://files.renderdraw.us/renderings/public/obj/Flight_24230EU_OBJ.obj"
+                            onclick="{!c.handleFlightClick}" />
+                    </span>
+                </div>
+                <div class="slds-col slds-size_3-of-3 slds-m-around_small">
+                    <span>
+                        <lightning:button label="Use RenderDrawPencil.obj"
+                            title="Use https://files.renderdraw.us/renderings/public/obj/RenderDrawPencil.obj"
+                            onclick="{!c.handlePencilClick}" />
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="slds-col slds-size_2-of-3">
+            <div class="slds-text-heading_medium slds-m-vertical_medium">Rendering {!v.selectedOverrideURL} </div>
+            <RDraw:SimpleRenderer overrideURL="{!v.selectedOverrideURL}" />
+        </div>
+    </div>
+</aura:component>
